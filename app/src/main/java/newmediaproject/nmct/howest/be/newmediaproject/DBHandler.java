@@ -17,7 +17,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //  table names
     private static final String TABLE_BEACONS = "Beacons";
     private static final String TABLE_WIKELS = "Winkels";
-    private static final String TABLE_SHOPS = "Producten";
+    private static final String TABLE_PRODUCTEN= "Producten";
     //Beacons TableCollums
     private static  final String KEY_ID ="Id";
     private static  final String KEY_NAME ="Name";
@@ -39,7 +39,20 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     }
+    public void AddStore (List<Store> storelijst){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        for (Store store:storelijst ) {
+            values.put(WINKEL_ID,store.getmId());
+            values.put(WINKEL_NAAM,store.getmName());
+            values.put(WINKEL_LOCATION,store.getmLocation());
+            values.put(WINKEL_OPEN,store.getmOpen());
 
+
+            db.insert(TABLE_WIKELS,null,values);
+            db.close();
+        }
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Beacon Tabel maken
