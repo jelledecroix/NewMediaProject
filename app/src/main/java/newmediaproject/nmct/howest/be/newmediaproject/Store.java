@@ -20,6 +20,11 @@ public class Store {
         this.setmName(Name);
         this.setmOpen(Open);
     }
+
+    public Store() {
+
+    }
+
     public String toString() {
         return getmName();
     }
