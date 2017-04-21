@@ -10,7 +10,7 @@ public class ColorHelper {
         switch (kleur) {
             case "Green":
                 return R.drawable.green;
-            case "blue":
+            case "Blue":
                 return R.drawable.blue;
             case "Purple":
                 return R.drawable.purple;
