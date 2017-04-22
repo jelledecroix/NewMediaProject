@@ -24,8 +24,8 @@ public class Beacons  {
      * Item Id
      */
     @com.google.gson.annotations.SerializedName("id")
-    private String mId;
-    private  String StoreID;
+    private int mId;
+    private  int StoreID;
 
 
     /**
@@ -48,7 +48,7 @@ public class Beacons  {
      * @param id
      *            The item id
      */
-    public Beacons(String name,String color,String GeoLocation,String uuid,String major,String minor,String indoorlocation, String id,String StoreID) {
+    public Beacons(int id,String name,String color,String GeoLocation,String uuid,String major,String minor,String indoorlocation,int StoreID) {
         this.setName(name);
         this.setColor(color);
         this.setmGeoLocation(GeoLocation);
@@ -74,7 +74,7 @@ public class Beacons  {
     /**
      * Returns the item id
      */
-    public String getId() {
+    public int getId() {
         return mId;
     }
 
@@ -84,7 +84,7 @@ public class Beacons  {
      * @param id
      *            id to set
      */
-    public final void setId(String id) {
+    public final void setId(int id) {
         mId = id;
     }
 
@@ -150,11 +150,11 @@ public class Beacons  {
         return mIndoorLocation;
     }
 
-    public String getStoreID() {
+    public int getStoreID() {
         return StoreID;
     }
 
-    public void setStoreID(String storeID) {
+    public void setStoreID(int storeID) {
         StoreID = storeID;
     }
 }

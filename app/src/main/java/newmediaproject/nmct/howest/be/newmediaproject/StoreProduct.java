@@ -7,8 +7,8 @@ package newmediaproject.nmct.howest.be.newmediaproject;
 public class StoreProduct {
     @com.google.gson.annotations.SerializedName("id")
     private String mId;
-    @com.google.gson.annotations.SerializedName("stroreid")
-    private String mStroreId;
+    @com.google.gson.annotations.SerializedName("storeid")
+    private String mStoreId;
     @com.google.gson.annotations.SerializedName("productid")
     private String mProductId;
     @com.google.gson.annotations.SerializedName("prijs")
@@ -17,9 +17,14 @@ public class StoreProduct {
            this.setmId(id);
             this.setmPrijs(prijs);
             this.setmProductId(productid);
-            this.setmStroreId(storeid);
+            this.setmmStoreId(storeid);
 
         }
+
+    public StoreProduct() {
+
+    }
+
     public String getmId() {
         return mId;
     }
@@ -28,12 +33,12 @@ public class StoreProduct {
         this.mId = mId;
     }
 
-    public String getmStroreId() {
-        return mStroreId;
+    public String getmmStoreId() {
+        return mStoreId;
     }
 
-    public void setmStroreId(String mStroreId) {
-        this.mStroreId = mStroreId;
+    public void setmmStoreId(String mmStoreId) {
+        this.mStoreId = mmStoreId;
     }
 
     public String getmProductId() {

@@ -6,28 +6,32 @@ import java.lang.reflect.Constructor;
 
 public class Store {
     @com.google.gson.annotations.SerializedName("id")
-    private String mId;
+    private int mId;
     @com.google.gson.annotations.SerializedName("name")
     private String mName;
     @com.google.gson.annotations.SerializedName("location")
     private String mLocation;
-    @com.google.gson.annotations.SerializedName("open")
-    private String mOpen;
 
-    public Store(String id,String Name,String Location,String Open){
+
+    public Store(int id,String Name,String Location){
         this.setmId(id);
         this.setmLocation(Location);
         this.setmName(Name);
-        this.setmOpen(Open);
+
     }
+
+    public Store() {
+
+    }
+
     public String toString() {
         return getmName();
     }
-    public String getmId() {
+    public int getmId() {
         return mId;
     }
 
-    public void setmId(String mId) {
+    public void setmId(int mId) {
         this.mId = mId;
     }
 
@@ -47,11 +51,4 @@ public class Store {
         this.mLocation = mLocation;
     }
 
-    public String getmOpen() {
-        return mOpen;
-    }
-
-    public void setmOpen(String mOpen) {
-        this.mOpen = mOpen;
-    }
 }
