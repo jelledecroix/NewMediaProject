@@ -27,15 +27,24 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+<<<<<<< HEAD
     compile group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.5.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+=======
+>>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
     compile 'com.google.code.gson:gson:2.3'
     compile 'com.google.guava:guava:18.0'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'com.microsoft.azure:azure-mobile-android:3.2.0@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
     compile 'com.clough.android.androiddbviewer:androiddbviewer:1.0.0'
+<<<<<<< HEAD
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
     compile 'com.estimote:sdk:0.11.1@aar'
+=======
+    compile group: 'org.apache.httpcomponents' , name: 'httpclient-android' , version: '4.3.5.1'
+    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+
+>>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
     testCompile 'junit:junit:4.12'
 }

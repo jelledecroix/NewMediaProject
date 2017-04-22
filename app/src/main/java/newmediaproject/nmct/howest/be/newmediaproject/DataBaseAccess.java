@@ -1,13 +1,23 @@
 package newmediaproject.nmct.howest.be.newmediaproject;
 
 import android.content.Context;
+<<<<<<< HEAD
 import android.database.Cursor;
+=======
+>>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+/**
+ * Created by jelle on 21/04/2017.
+ */
+
+>>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
 public class DataBaseAccess {
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase database;
@@ -29,6 +39,7 @@ public class DataBaseAccess {
             this.database.close();
         }
     }
+<<<<<<< HEAD
     public List<Beacons> getBeacons(){
         List<Beacons> list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM Beacons",null);
@@ -101,5 +112,10 @@ public class DataBaseAccess {
 
         cursor.close();
         return storelist;
+=======
+    public List<Beacons> GetBeacons(){
+List<Beacons> list = new ArrayList<>();
+return list;
+>>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
     }
 }

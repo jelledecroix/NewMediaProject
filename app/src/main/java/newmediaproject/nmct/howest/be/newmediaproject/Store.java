@@ -24,6 +24,13 @@ public class Store {
 
     }
 
+<<<<<<< HEAD
+=======
+    public Store() {
+
+    }
+
+>>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
     public String toString() {
         return getmName();
     }
