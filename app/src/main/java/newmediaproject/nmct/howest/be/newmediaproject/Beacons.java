@@ -6,24 +6,21 @@ public class Beacons  {
      * Item text
      */
 
-    @com.google.gson.annotations.SerializedName("name")
+
     private String mName;
-    @com.google.gson.annotations.SerializedName("color")
+
     private String Color;
-    @com.google.gson.annotations.SerializedName("GeoLocation")
+
     private String mGeoLocation;
-    @com.google.gson.annotations.SerializedName("uuid")
+
     private String mUUID;
-    @com.google.gson.annotations.SerializedName("major")
+
     private String mMajor;
-    @com.google.gson.annotations.SerializedName("minor")
+
     private String mMinor;
-    @com.google.gson.annotations.SerializedName("IndoorLocation")
+
     private String mIndoorLocation;
-    /**
-     * Item Id
-     */
-    @com.google.gson.annotations.SerializedName("id")
+
     private int mId;
     private  int StoreID;
 

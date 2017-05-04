@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Details">
+
+
+    <ImageView
+        android:id="@+id/imagePotoProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/background_light"
+        android:gravity="center"
+        android:src="@mipmap/laptop1"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="117dp"
+        android:layout_below="@+id/textProductDetailNaam"
+        android:layout_above="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textProductDetailNaam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="TextView"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text='De gloednieuwe ZenBook UX310 levert elegantie, verfijning en uitmuntende prestaties in een prachtig, slank en licht ontwerp. Vervaardigd uit massief aluminium en voorzien van onze iconische, Zen-geïnspireerde afwerking van gesponnen metaal, is de ZenBook UX310 slechts 18,35mm dun. Zijn reisvriendelijke gewicht van net 1,45kg betekent bovendien dat het nooit een last is om hem mee te nemen, en het gebruik is altijd een plezier dankzij het scherpe, heldere 13,3" scherm met brede kijkhoek.'
+        android:layout_above="@+id/textPrijsDetail"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/textPrijsDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="21dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Prijs"
+        android:textSize="36sp" />
+
+</RelativeLayout>

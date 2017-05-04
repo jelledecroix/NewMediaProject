@@ -8,7 +8,7 @@
     <ListView
         android:id="@+id/Beaconlijst"
         android:layout_width="match_parent"
-        android:layout_height="371dp"
+        android:layout_height="match_parent"
         android:padding="6dip"
         tools:listitem="@layout/list_beacons">
 

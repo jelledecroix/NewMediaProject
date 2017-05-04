@@ -3,35 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
-  <ImageView
-            android:id="@+id/imageviewBeaonc"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentLeft="true"
-            android:contentDescription="@string/beacon"
-            android:src="@drawable/beacon" />
 
-        <TextView
-            android:id="@+id/textViewNaamBeacon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/imageviewBeaonc"
-            android:layout_marginLeft="10dp"
-            android:text="@string/naam_beacon"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textProductNaam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="NaamProduct"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnToonInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:text="@string/info_beacon" >
-        </Button>
+    <TextView
+        android:id="@+id/textPrijsDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
 
+        android:layout_weight="0.08"
+        android:text="Prijs"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
-
+    <TextView
+        android:id="@+id/textInVoorraad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="Invoorraad?"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 </LinearLayout>

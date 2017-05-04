@@ -1,33 +1,32 @@
 package newmediaproject.nmct.howest.be.newmediaproject;
 
+import java.io.Serializable;
+
 /**
  * Created by Jelle on 18/04/2017.
  */
 
-public class Producten {
-    @com.google.gson.annotations.SerializedName("id")
+public class Producten implements Serializable {
     private int mId;
-    @com.google.gson.annotations.SerializedName("name")
     private String mName;
-
-<<<<<<< HEAD:app/src/main/java/newmediaproject/nmct/howest/be/newmediaproject/producten.java
-public Producten(int id, String naam){
-=======
-public Producten(String id, String naam){
->>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41:app/src/main/java/newmediaproject/nmct/howest/be/newmediaproject/Producten.java
+    private int mPrijs;
+    private String mCategorie;
+    private int inVooraad;
+    private int IsChecked;
+public Producten(int id, String naam, int prijs,String categorie,int inVooraad,int ischecked){
     this.setmId(id);
     this.setmName(naam);
+    this.setmPrijs(prijs);
+    this.setmCategorie(categorie);
+    this.setInVooraad(inVooraad);
+    this.setIsChecked(ischecked);
 }
 
     public Producten() {
 
     }
 
-<<<<<<< HEAD:app/src/main/java/newmediaproject/nmct/howest/be/newmediaproject/producten.java
     public int getmId() {
-=======
-    public String getmId() {
->>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41:app/src/main/java/newmediaproject/nmct/howest/be/newmediaproject/Producten.java
         return mId;
     }
 
@@ -41,5 +40,37 @@ public Producten(String id, String naam){
 
     public void setmName(String mName) {
         this.mName = mName;
+    }
+
+    public int getmPrijs() {
+        return mPrijs;
+    }
+
+    public void setmPrijs(int mPrijs) {
+        this.mPrijs = mPrijs;
+    }
+
+    public String getmCategorie() {
+        return mCategorie;
+    }
+
+    public void setmCategorie(String mCategorie) {
+        this.mCategorie = mCategorie;
+    }
+
+    public int getInVooraad() {
+        return inVooraad;
+    }
+
+    public void setInVooraad(int inVooraad) {
+        this.inVooraad = inVooraad;
+    }
+
+    public int getIsChecked() {
+        return IsChecked;
+    }
+
+    public void setIsChecked(int isChecked) {
+        IsChecked = isChecked;
     }
 }

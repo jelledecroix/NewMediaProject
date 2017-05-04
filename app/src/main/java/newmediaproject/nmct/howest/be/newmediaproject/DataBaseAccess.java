@@ -1,23 +1,14 @@
 package newmediaproject.nmct.howest.be.newmediaproject;
 
+import android.content.ContentValues;
 import android.content.Context;
-<<<<<<< HEAD
 import android.database.Cursor;
-=======
->>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
-/**
- * Created by jelle on 21/04/2017.
- */
-
->>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
 public class DataBaseAccess {
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase database;
@@ -39,7 +30,6 @@ public class DataBaseAccess {
             this.database.close();
         }
     }
-<<<<<<< HEAD
     public List<Beacons> getBeacons(){
         List<Beacons> list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM Beacons",null);
@@ -62,6 +52,23 @@ public class DataBaseAccess {
         return list;
     }
 
+public boolean addchecked(Producten checkProd)
+{
+    ContentValues prod = new ContentValues();
+    prod.put("Id",checkProd.getmId());
+    prod.put("name",checkProd.getmName());
+    prod.put("prijs",checkProd.getmPrijs());
+    prod.put("Categorie",checkProd.getmCategorie());
+    prod.put("inVooraad",checkProd.getInVooraad());
+    if(checkProd.getIsChecked()==1) {
+        prod.put("IsChecked",0);
+    }else {
+        prod.put("IsChecked",1);
+    }
+
+    return database.update("Producten",prod,"id="+checkProd.getmId(),null) >0;
+}
+
 
     public List<Producten>getproducten(){
         List<Producten>productenList=new ArrayList<>();
@@ -71,8 +78,11 @@ public class DataBaseAccess {
             Producten product = new Producten();
             product.setmId(cursor.getInt(0));
             product.setmName(cursor.getString(1));
+            product.setmPrijs(cursor.getInt(2));
+            product.setmCategorie(cursor.getString(3));
+            product.setInVooraad(cursor.getInt(4));
+           product.setIsChecked(cursor.getInt(5));
             productenList.add(product);
-
         }
         cursor.close();
         return productenList;
@@ -112,10 +122,5 @@ public class DataBaseAccess {
 
         cursor.close();
         return storelist;
-=======
-    public List<Beacons> GetBeacons(){
-List<Beacons> list = new ArrayList<>();
-return list;
->>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
     }
 }

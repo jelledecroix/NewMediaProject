@@ -39,7 +39,7 @@ public class BeaconsAdapter extends ArrayAdapter<Beacons> {
 
         row.setTag(currentItem);
 
-        TextView beaconnamm = (TextView) row.findViewById(R.id.textViewNaamBeacon);
+        TextView beaconnamm = (TextView) row.findViewById(R.id.textProductNaam);
         beaconnamm.setText(currentItem.getmName());
         ImageView beaconKleur = (ImageView) row.findViewById(R.id.imageviewBeaonc);
         beaconKleur.setImageResource(ColorHelper.getResourceId(currentItem.getColor()));

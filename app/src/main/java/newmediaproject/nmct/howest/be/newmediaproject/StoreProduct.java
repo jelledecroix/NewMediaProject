@@ -5,13 +5,13 @@ package newmediaproject.nmct.howest.be.newmediaproject;
  */
 
 public class StoreProduct {
-    @com.google.gson.annotations.SerializedName("id")
+
     private String mId;
-    @com.google.gson.annotations.SerializedName("storeid")
+
     private String mStoreId;
-    @com.google.gson.annotations.SerializedName("productid")
+
     private String mProductId;
-    @com.google.gson.annotations.SerializedName("prijs")
+
     private int mPrijs;
         public StoreProduct(String id,String storeid,String productid,int prijs){
            this.setmId(id);

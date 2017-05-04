@@ -1,15 +1,15 @@
 package newmediaproject.nmct.howest.be.newmediaproject;
 
-import com.google.gson.internal.ConstructorConstructor;
+
 
 import java.lang.reflect.Constructor;
 
 public class Store {
-    @com.google.gson.annotations.SerializedName("id")
+
     private int mId;
-    @com.google.gson.annotations.SerializedName("name")
+
     private String mName;
-    @com.google.gson.annotations.SerializedName("location")
+
     private String mLocation;
 
 
@@ -24,13 +24,6 @@ public class Store {
 
     }
 
-<<<<<<< HEAD
-=======
-    public Store() {
-
-    }
-
->>>>>>> 9c04804918de256da30175610b3d3f00d4c42e41
     public String toString() {
         return getmName();
     }
