@@ -17,7 +17,6 @@ import java.util.List;
 
 public class NearestBeaconManager {
 
-    private static final String TAG = "NearestBeaconManager";
 
     private static final Region ALL_ESTIMOTE_BEACONS = new Region("all Estimote beacons", null, null, null);
 
@@ -111,7 +110,6 @@ public class NearestBeaconManager {
             }
         }
 
-        Log.d(TAG, "Nearest beacon: " + nearestBeacon + ", distance: " + nearestBeaconsDistance);
         return nearestBeacon;
     }
 }

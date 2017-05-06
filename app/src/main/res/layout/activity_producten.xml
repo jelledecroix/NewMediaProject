@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bdTester">
+    tools:context=".ProductLijst">
 
     <ListView
         android:id="@+id/listViewProd"
@@ -13,7 +13,5 @@
         android:layout_centerInParent="true"
         android:divider="@android:color/transparent"
         android:dividerHeight="2dp"
-        android:paddingLeft="0dp"
-        android:paddingRight="10dp"
-        tools:listitem="@layout/list_beacons" />
+        tools:listitem="@layout/list_producten" />
 </FrameLayout>

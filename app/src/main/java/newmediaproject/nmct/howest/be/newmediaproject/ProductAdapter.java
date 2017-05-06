@@ -24,7 +24,7 @@ public class ProductAdapter extends ArrayAdapter<Producten> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
-        int colors = android.graphics.Color.rgb(255, 192, 203);
+        int colors = android.graphics.Color.rgb(232, 94, 0);
         final Producten currentItem = getItem(position);
 
         if (row == null) {

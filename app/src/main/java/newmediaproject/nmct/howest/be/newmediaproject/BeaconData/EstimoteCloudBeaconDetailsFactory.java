@@ -14,8 +14,6 @@ import com.estimote.sdk.exception.EstimoteServerException;
 
 public class EstimoteCloudBeaconDetailsFactory implements BeaconContentFactory {
 
-    private static final String TAG = "BeaconDetailsFactory";
-
     @Override
     public void getContent(final BeaconID beaconID, final Callback callback) {
         EstimoteCloud.getInstance().fetchBeaconDetails(
@@ -30,11 +28,7 @@ public class EstimoteCloudBeaconDetailsFactory implements BeaconContentFactory {
 
                     @Override
                     public void failure(EstimoteServerException e) {
-                        Log.e(TAG, "Couldn't fetch data from Estimote Cloud for beacon " + beaconID
-                                + ", will use default values instead. Double-check if the app ID and app "
-                                + "token provided in the MyApplication are correct, and if the beacon with "
-                                + "such ID is assigned to your Estimote Account. The error was: "
-                                + e.toString());
+
                         callback.onContentReady(new EstimoteCloudBeaconDetails("beacon", Color.UNKNOWN,0,0));
                     }
                 });
