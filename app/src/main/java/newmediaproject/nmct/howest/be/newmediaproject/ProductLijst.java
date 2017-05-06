@@ -1,5 +1,4 @@
 package newmediaproject.nmct.howest.be.newmediaproject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,34 +9,41 @@ import com.estimote.sdk.SystemRequirementsChecker;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import newmediaproject.nmct.howest.be.newmediaproject.Adapters.ProductAdapter;
 import newmediaproject.nmct.howest.be.newmediaproject.BeaconData.BeaconID;
 import newmediaproject.nmct.howest.be.newmediaproject.BeaconData.EstimoteCloudBeaconDetails;
 import newmediaproject.nmct.howest.be.newmediaproject.BeaconData.EstimoteCloudBeaconDetailsFactory;
 import newmediaproject.nmct.howest.be.newmediaproject.BeaconData.ProximityContentManager;
+import newmediaproject.nmct.howest.be.newmediaproject.Database.DataBaseAccess;
+import newmediaproject.nmct.howest.be.newmediaproject.Models.Beacons;
+import newmediaproject.nmct.howest.be.newmediaproject.Models.Producten;
+import newmediaproject.nmct.howest.be.newmediaproject.Models.Store;
+import newmediaproject.nmct.howest.be.newmediaproject.Models.StoreProduct;
 
 public class ProductLijst extends Activity  {
-
+    List<Producten> productenList =new ArrayList<>();
+    List<Producten> CategorieProducten = new ArrayList<>();
+   Store GekozenWinkel = new Store();
+    List<StoreProduct> winkelProduct= new ArrayList<>();
+    List<Beacons> beaconsList = new ArrayList<>();
+    List<BeaconID>beaconsids = new ArrayList<>();
     private ProximityContentManager proximityContentManager;
     private ProductAdapter mAdapter;
     DataBaseAccess dataBaseAccess;
-    List<Producten> productenList =new ArrayList<>();
-    List<Producten> CategorieProducten = new ArrayList<>();
     EstimoteCloudBeaconDetails beaconDetails;
     ListView listViewBeacons;
-    List<Beacons> beaconsList = new ArrayList<>();
-    List<BeaconID>beaconsids = new ArrayList<>();
     int beaconMajor =0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
      setContentView(R.layout.activity_producten);
-
-
+        Intent i = getIntent();
+        GekozenWinkel = (Store) i.getSerializableExtra("GekozenWinkel");
         getDatabaseData();
         ConvertDbBeaconsToEstimoteBeacons();
         mAdapter =new ProductAdapter(this,R.layout.list_producten);
-         listViewBeacons = (ListView) findViewById(R.id.listViewProd);
+        listViewBeacons = (ListView) findViewById(R.id.listViewProd);
         listViewBeacons.setAdapter(mAdapter);
         listViewBeacons.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -51,7 +57,6 @@ public class ProductLijst extends Activity  {
 
                 updateLonpressedList(position);
                 updateAdapter();
-
 
                 return true;
             }
@@ -81,8 +86,10 @@ public class ProductLijst extends Activity  {
     private void getDatabaseData(){
         dataBaseAccess = DataBaseAccess.getInstance(this);
         dataBaseAccess.open();
+       winkelProduct = dataBaseAccess.getStoreProducts(GekozenWinkel);
         beaconsList= dataBaseAccess.getBeacons();
-        productenList = dataBaseAccess.getproducten();
+        productenList = dataBaseAccess.getproducten(GekozenWinkel);
+
         dataBaseAccess.close();
     }
     private void updateLonpressedList(int position){
@@ -91,7 +98,7 @@ public class ProductLijst extends Activity  {
         productenList.clear();
         dataBaseAccess.open();
         dataBaseAccess.addchecked(prodcat);
-        productenList = dataBaseAccess.getproducten();
+        productenList = dataBaseAccess.getproducten(GekozenWinkel);
         dataBaseAccess.close();
                 /*
                 if(beaconDetails !=null){
@@ -131,15 +138,14 @@ public class ProductLijst extends Activity  {
     }
     private void Details(int position){
         Intent i = new Intent(this, Details.class);
-      Producten prod =  CategorieProducten.get(position);
+        Producten prod =  CategorieProducten.get(position);
         i.putExtra("Product", prod);
         startActivity(i);
     }
     private void UpdateItems(Object content){
-
         CategorieProducten.clear();
         if (content != null) {
-             beaconDetails = (EstimoteCloudBeaconDetails) content;
+            beaconDetails = (EstimoteCloudBeaconDetails) content;
             beaconMajor =beaconDetails.getBeaconMajor();
             setTitle(beaconDetails.getBeaconName());
             for(Producten prod:productenList){
@@ -148,41 +154,30 @@ public class ProductLijst extends Activity  {
                 }
             }
         } else {
-           setTitle("not in range");
-            beaconMajor =0;
+            setTitle("not in range");
             for(Producten prod:productenList){
-
                 CategorieProducten.add(prod);
-
             }
-
         }
-
         updateAdapter();
     }
     private void updateAdapter(){
         mAdapter.clear();
-
        // listViewBeacons.getAdapter().notifyDataSetChanged();
         for(Producten prod:CategorieProducten){
             mAdapter.add(prod);
         }
     }
-
-
     @Override
     protected void onPause() {
         super.onPause();
         proximityContentManager.stopContentUpdates();
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         proximityContentManager.destroy();
     }
-
-
     @Override
     protected void onResume() {
         super.onResume();

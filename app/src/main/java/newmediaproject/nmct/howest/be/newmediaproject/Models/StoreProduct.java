@@ -1,4 +1,4 @@
-package newmediaproject.nmct.howest.be.newmediaproject;
+package newmediaproject.nmct.howest.be.newmediaproject.Models;
 
 /**
  * Created by Jelle on 18/04/2017.

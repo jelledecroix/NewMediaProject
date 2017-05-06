@@ -1,4 +1,4 @@
-package newmediaproject.nmct.howest.be.newmediaproject;
+package newmediaproject.nmct.howest.be.newmediaproject.Models;
 
 import java.io.Serializable;
 

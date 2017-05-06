@@ -1,10 +1,11 @@
-package newmediaproject.nmct.howest.be.newmediaproject;
+package newmediaproject.nmct.howest.be.newmediaproject.Models;
 
 
 
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 
-public class Store {
+public class Store implements Serializable {
 
     private int mId;
 

@@ -1,4 +1,4 @@
-package newmediaproject.nmct.howest.be.newmediaproject;
+package newmediaproject.nmct.howest.be.newmediaproject.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,6 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import newmediaproject.nmct.howest.be.newmediaproject.Models.Beacons;
+import newmediaproject.nmct.howest.be.newmediaproject.Models.Producten;
+import newmediaproject.nmct.howest.be.newmediaproject.Models.Store;
+import newmediaproject.nmct.howest.be.newmediaproject.Models.StoreProduct;
 
 public class DataBaseAccess {
     private SQLiteOpenHelper openHelper;
@@ -87,7 +92,25 @@ public boolean addchecked(Producten checkProd)
         cursor.close();
         return productenList;
     }
+    public List<Producten>getproducten(Store winkels ){
+        List<Producten>productenList=new ArrayList<>();
 
+        Cursor cursor = database.rawQuery("SELECT Producten .Id, name, StoreProduct.prijs ,Categorie,invooraad,IsChecked FROM Producten INNER JOIN StoreProduct ON Producten.Id =  StoreProduct.ProductId WHERE StoreId ="+winkels.getmId(),null);
+        while(!cursor.isLast()) {
+            cursor.moveToNext();
+            Producten product = new Producten();
+            product.setmId(cursor.getInt(0));
+            product.setmName(cursor.getString(1));
+            product.setmPrijs(cursor.getInt(2));
+            product.setmCategorie(cursor.getString(3));
+            product.setInVooraad(cursor.getInt(4));
+            product.setIsChecked(cursor.getInt(5));
+            productenList.add(product);
+        }
+        cursor.close();
+
+        return productenList;
+    }
 
     public List<StoreProduct>getStoreProducts(){
         List<StoreProduct>StoreProductList=new ArrayList<>();
@@ -107,7 +130,25 @@ public boolean addchecked(Producten checkProd)
         cursor.close();
         return StoreProductList;
     }
+    public List<StoreProduct>getStoreProducts(Store winkel){
+        List<StoreProduct>StoreProductList=new ArrayList<>();
+        String selectQuery="SELECT * FROM StoreProduct WHERE StoreId = "+ winkel.getmId();
+        Cursor cursor = database.rawQuery(selectQuery,null);
 
+        while(!cursor.isLast()) {
+            cursor.moveToNext();
+            StoreProduct storeproduct=new StoreProduct();
+            storeproduct.setmId(cursor.getString(0));
+            storeproduct.setmmStoreId(cursor.getString(1));
+            storeproduct.setmProductId(cursor.getString(2));
+            storeproduct.setmPrijs( cursor.getInt(3));
+            StoreProductList.add(storeproduct);
+
+        }
+
+        cursor.close();
+        return StoreProductList;
+    }
     public List<Store>getStores(){
         List<Store>storelist=new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM Store",null);

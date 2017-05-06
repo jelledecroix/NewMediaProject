@@ -1,4 +1,4 @@
-package newmediaproject.nmct.howest.be.newmediaproject;
+package newmediaproject.nmct.howest.be.newmediaproject.Adapters;
 
 
 import android.app.Activity;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import newmediaproject.nmct.howest.be.newmediaproject.Models.Producten;
+import newmediaproject.nmct.howest.be.newmediaproject.R;
 
 public class ProductAdapter extends ArrayAdapter<Producten> {
     Context mContext;
