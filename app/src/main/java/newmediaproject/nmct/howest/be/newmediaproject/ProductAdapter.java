@@ -39,7 +39,7 @@ public class ProductAdapter extends ArrayAdapter<Producten> {
         productNaam.setText(currentItem.getmName());
         prijs.setText(Integer.toString( currentItem.getmPrijs()).trim() +" €");
         if (currentItem.getInVooraad() == 1){
-            invooraad.setText("invooraad");
+            invooraad.setText("Op vooraad");
         }else{
             invooraad.setText("niet in vooraad");
         }
