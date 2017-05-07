@@ -56,9 +56,7 @@ public class DataBaseAccess {
         cursor.close();
         return list;
     }
-
-public boolean addchecked(Producten checkProd)
-{
+    public boolean addchecked(Producten checkProd) {
     ContentValues prod = new ContentValues();
     prod.put("Id",checkProd.getmId());
     prod.put("name",checkProd.getmName());
@@ -73,8 +71,6 @@ public boolean addchecked(Producten checkProd)
 
     return database.update("Producten",prod,"id="+checkProd.getmId(),null) >0;
 }
-
-
     public List<Producten>getproducten(){
         List<Producten>productenList=new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM Producten",null);
@@ -94,8 +90,9 @@ public boolean addchecked(Producten checkProd)
     }
     public List<Producten>getproducten(Store winkels ){
         List<Producten>productenList=new ArrayList<>();
+        String id= Integer.toString( winkels.getmId());
 
-        Cursor cursor = database.rawQuery("SELECT Producten .Id, name, StoreProduct.prijs ,Categorie,invooraad,IsChecked FROM Producten INNER JOIN StoreProduct ON Producten.Id =  StoreProduct.ProductId WHERE StoreId ="+winkels.getmId(),null);
+        Cursor cursor = database.rawQuery("SELECT Producten.Id, name, StoreProduct.prijs ,Categorie,StoreProduct.invooraad,IsChecked FROM Producten INNER JOIN StoreProduct ON Producten.Id =  StoreProduct.ProductId WHERE StoreId = ?",new String[]{id},null);
         while(!cursor.isLast()) {
             cursor.moveToNext();
             Producten product = new Producten();
@@ -111,7 +108,6 @@ public boolean addchecked(Producten checkProd)
 
         return productenList;
     }
-
     public List<StoreProduct>getStoreProducts(){
         List<StoreProduct>StoreProductList=new ArrayList<>();
         String selectQuery="SELECT * FROM StoreProduct";

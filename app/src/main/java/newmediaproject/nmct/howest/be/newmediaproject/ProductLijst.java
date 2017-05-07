@@ -82,7 +82,6 @@ public class ProductLijst extends Activity  {
 
         }
     }
-
     private void getDatabaseData(){
         dataBaseAccess = DataBaseAccess.getInstance(this);
         dataBaseAccess.open();
@@ -131,7 +130,7 @@ public class ProductLijst extends Activity  {
                 CategorieProducten.add(prod);
             }
         }
-                    /* test if beaconfiter workst without beacons remove beaconDetails.get major()
+                    /* test if beaconfiter works without beacons remove beaconDetails.get major()
                     and replace with beaconMajor
                      */
         //   beaconMajor =57417;
